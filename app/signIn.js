@@ -17,9 +17,11 @@ import { Octicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import Loading from "../components/Loading";
 import CustomKeyboardView from "../components/CustomKeyboardView";
+import { useAuth } from "../context/authContext";
 
 export default function SignIn() {
   const router = useRouter();
+  const {login} = useAuth();
   const [loading, setLoading] = useState(false);
 
   const emailRef = useRef("");
@@ -32,6 +34,14 @@ export default function SignIn() {
     }
 
     //login process
+    setLoading(true);
+    let response = await login(emailRef.current, passwordRef.current);
+    if (!response.success) {
+      console.log('got response : ', response);
+      Alert.alert("Sign In", response.msg);
+      setLoading(false);
+      return;
+    }
   };
 
   return (
