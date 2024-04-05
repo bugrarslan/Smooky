@@ -3,6 +3,7 @@ import { View, Text } from "react-native";
 import React from "react";
 import { AuthContextProvider, useAuth } from "../context/authContext";
 import { useEffect } from "react";
+import { MenuProvider } from "react-native-popup-menu";
 // Import your global CSS file
 import "../global.css";
 
@@ -13,24 +14,26 @@ const MainLayout = () => {
 
   useEffect(() => {
     // Check if the user is authenticated
-    if (typeof isAuthenticated == 'undefined') return;
-    const inApp = segments[0] == '(app)';
+    if (typeof isAuthenticated == "undefined") return;
+    const inApp = segments[0] == "(app)";
     if (isAuthenticated && !inApp) {
       //redirect to home
-      router.replace('home');
+      router.replace("home");
     } else if (isAuthenticated == false) {
       //redirect to login
-      router.replace('signIn');
+      router.replace("signIn");
     }
   }, [isAuthenticated]);
 
-  return <Slot/>
+  return <Slot />;
 };
 
 export default function RootLayout() {
   return (
-    <AuthContextProvider>
-      <MainLayout />
-    </AuthContextProvider>
+    <MenuProvider>
+      <AuthContextProvider>
+        <MainLayout />
+      </AuthContextProvider>
+    </MenuProvider>
   );
 }
