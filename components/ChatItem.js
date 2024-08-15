@@ -76,7 +76,7 @@ export default function ChatItem({ item, index, noBorder, router, currentUser })
       {/* profile image */}
 
       <Image 
-        source={{ uri: item?.profileUrl }}
+        source={{ uri: item?.profileUrl}}
         style={{ height: hp(6), width: hp(6), borderRadius: 100 }}
         placeholder={blurhash}
         transition={500}

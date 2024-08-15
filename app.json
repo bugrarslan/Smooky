@@ -1,14 +1,14 @@
 {
   "expo": {
-    "name": "firebaseChatApp",
-    "slug": "firebaseChatApp",
+    "name": "Smooky",
+    "slug": "Smooky",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/smooky.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "splash": {
-      "image": "./assets/images/splash.png",
+      "image": "./assets/images/smooky-splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -16,13 +16,15 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.bugrarslan.Smooky"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "foregroundImage": "./assets/images/smooky.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.bugrarslan.Smooky"
     },
     "web": {
       "bundler": "metro",
@@ -34,6 +36,14 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "1f79c1cb-ad24-4970-85c9-8d070945f2b9"
+      }
     }
   }
 }

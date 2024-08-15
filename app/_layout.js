@@ -4,8 +4,6 @@ import React from "react";
 import { AuthContextProvider, useAuth } from "../context/authContext";
 import { useEffect } from "react";
 import { MenuProvider } from "react-native-popup-menu";
-// Import your global CSS file
-import "../global.css";
 
 const MainLayout = () => {
   const { isAuthenticated } = useAuth();
